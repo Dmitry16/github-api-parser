@@ -1,1 +1,1 @@
-module.exports = require('./__do-not-commit-me__')
+module.exports = require('./_do-not-commit-me_')
