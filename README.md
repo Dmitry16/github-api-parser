@@ -14,12 +14,14 @@ The total number of commits is obteined through the next endpoint:
 
 - [Get Statistics Per Collaborator](https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts)
 
+# Requirements:
+
+Node.js v.8.9 or higher
+
 # Installation:
 
-First you need to have the node.js v.8.9 or higher installed on your machine then:
-
 1. Clone or download the repository.
-2. Get into the root directory: $cd gh-parser.
+2. Get into the root directory: $cd github-api-parser.
 3. Run npm install
 
 # Usage:
