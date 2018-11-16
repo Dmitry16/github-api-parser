@@ -7,8 +7,9 @@ module.exports.getRepo = function() {
     return process.argv[repoArgvIndex + 1]
   }
   if (repoArgvIndex === -1) {
-    console.log('pls provide --repo parameter')
-    process.exit()
+    // console.log('pls provide --repo parameter')
+    // process.exit()
+    return 'nodejs/node'
   }
 }
 module.exports.getPeriod = function() {

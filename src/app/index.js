@@ -20,15 +20,17 @@ const apiBase = 'https://api.github.com'
 const conStrBase = `/repos/${repo}`
 const conStrParamsArr = makeConStringWithDate(period, date)
 
-console.dir(config.GITHUB_PERSONAL_ACCESS_TOKEN)
+// console.dir(config.GITHUB_PERSONAL_ACCESS_TOKEN)
 
 const conParams = {
   responseType: 'stream',
   baseURL: apiBase,
   headers: {
-    Authorization: `token ${config.GITHUB_PERSONAL_ACCESS_TOKEN}`,
+    Authorization: `token 0a50d9993df3aeaebfe1e8b72751e731b97ec23a`,
   },
 }
+// console.log(conParams)
+
 let chunksLength = 0
 let statsObj = {}
 let resourceCounter = 0
