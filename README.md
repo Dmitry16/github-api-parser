@@ -1,6 +1,6 @@
 # Description:
 
-The gh-parser is a CLI tool that get commenters statistics for a given Github repository.
+The github-api-parser is a CLI tool that get statistics for all commenters for a given Github repository.
 
 Github has [neat statistics](https://github.com/facebook/react/graphs/contributors) for contributors, it shows number of commits and nice charts. But people contribute to Github projects not only via commits. Actually, a lot of contributions happens in issue or pull request comments. Github doesn't have statistics to show "top commenters".
 
