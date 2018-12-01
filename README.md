@@ -34,6 +34,6 @@ Now you can use the tool to access API to get 5000 requests/hour.
 
 Please provide `--repo` and `--period` parameters. The `--repo` parameter is required, the `--period` parameter is optional and if not provided the data is going to be fetched for all period the repo exists.
 
-# Run:
+# Run (from the project root):
 
-$node index.js --repo <some repo (e.g. nodejs/node)> --period 20d
+$node src/index.js --repo <some repo (e.g. nodejs/node)> --period 20d

@@ -9,9 +9,10 @@ const { parser } = require('stream-json')
 const { streamArray } = require('stream-json/streamers/StreamArray')
 const { streamValues } = require('stream-json/streamers/StreamValues')
 
-//getting repo and period parameters
+//parsing repo and period parameters from the user command
 const repo = getRepo()
 const period = getPeriod() === 0 ? 'All' : getPeriod()
+
 const date = moment()
   .subtract(period, 'days')
   .toISOString()
