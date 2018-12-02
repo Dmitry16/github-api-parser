@@ -28,7 +28,7 @@ Node.js v.8.9 or higher
 
 In order to use this tool you will need to have the personal access token to Github API. You can get one passing to the link:
 
-[Create personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/), make a file fith the name \_do-not-commit-me_.js with the next line: module.exports = 'YOUR-GITHUB-TOKEN'. Place the file in the directory with the following path: src/config/token/
+[Create personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/), make a file fith the name \_do-not-commit-me_.js with the next line: module.exports = 'YOUR-GITHUB-TOKEN'. Place the file in the directory with the following path: ./src/config/token/
 
 Now you can use the tool to access API to get 5000 requests/hour.
 
@@ -36,4 +36,4 @@ Please provide `--repo` and `--period` parameters. The `--repo` parameter is req
 
 # Run (from the project root):
 
-$node src/index.js --repo <some repo (e.g. nodejs/node)> --period 20d
+$node index.js --repo <some repo (e.g. nodejs/node)> --period 20d

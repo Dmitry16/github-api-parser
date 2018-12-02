@@ -1,5 +1,5 @@
-const dataHandler = require('./helpers/dataFilter')
-const dataOutput = require('./helpers/dataOutput')
+const dataHandler = require('./utils/dataFilter')
+const dataOutput = require('./utils/dataOutput')
 const { Writable } = require('stream')
 
 function createProcessingStream(
@@ -22,8 +22,6 @@ function createProcessingStream(
         contLength,
         JSON.stringify(object).length,
       )
-
-        // console.log('streamModifier resourceCounter', resourceCounter)
 
       dataHandler(object, resourceCounter, statsObj)
 

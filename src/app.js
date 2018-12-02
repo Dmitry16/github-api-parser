@@ -1,17 +1,17 @@
 const moment = require('moment')
 const config = require('./config/config.js')
-const makeConStringWithDate = require('./helpers/conStringMaker')
-const { getRepo, getPeriod } = require('./helpers/argvParser')
+const makeConStringWithDate = require('./utils/conStringMaker')
+const { getRepo, getPeriod } = require('./utils/argvParser')
 const fetchData = require('./api')
 
 //parsing repo and period parameters from the user command
 const repo = getRepo()
 const period = getPeriod() === 0 ? 'All' : getPeriod()
 
+//making connection string
 const date = moment()
   .subtract(period, 'days')
   .toISOString()
-//making connection string
 const apiBase = 'https://api.github.com'
 const conStrBase = `/repos/${repo}`
 const conStrParamsArr = makeConStringWithDate(period, date)
@@ -30,6 +30,4 @@ async function init() {
   }
 }
 
-if (repo) {
-  init()
-}
+if (repo) init()
