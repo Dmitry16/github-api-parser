@@ -15,8 +15,8 @@ function dataOutput(statsObj, fetchPercent, period) {
       return `${chalk.yellow(leftPad(key[1][0], 4))} comments, ${chalk.red(
         key[0],
       )} (${chalk.yellow(key[1][1])} commits)\n`
-    }
-  })
+    };
+  });
 
   //outputting the data
   return logUpdate(`
@@ -25,7 +25,7 @@ function dataOutput(statsObj, fetchPercent, period) {
 }% Remaining: ${statsObj.remaining}
 
 ${chalk.green(userStatsArr.toString().replace(/,/g, ''))}
-  `)
-}
+  `);
+};
 
-module.exports = dataOutput
+module.exports = dataOutput;

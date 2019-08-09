@@ -6,8 +6,8 @@ const makeConStringWithDate = (period, date) => {
       `/pulls/comments?since=${date}`,
       '/stats/contributors',
       '/rate_limit',
-    ]
-  }
+    ];
+  };
   if (period === 'All') {
     return [
       '/comments',
@@ -15,7 +15,7 @@ const makeConStringWithDate = (period, date) => {
       '/pulls/comments',
       '/stats/contributors',
       '/rate_limit',
-    ]
-  }
-}
-module.exports = makeConStringWithDate
+    ];
+  };
+};
+module.exports = makeConStringWithDate;

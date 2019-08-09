@@ -1,6 +1,6 @@
-const dataHandler = require('./utils/dataFilter')
-const dataOutput = require('./utils/dataOutput')
-const { Writable } = require('stream')
+const dataHandler = require('./utils/dataFilter');
+const dataOutput = require('./utils/dataOutput');
+const { Writable } = require('stream');
 
 function createProcessingStream(
   contLength,
@@ -12,7 +12,7 @@ function createProcessingStream(
   const calcFetchPercent = (contLength, oneChunkLength) => {
     chunksLength = chunksLength + oneChunkLength
     return Math.floor(chunksLength * 100 / contLength)
-  }
+  };
 
   return new Writable({
 
@@ -21,16 +21,17 @@ function createProcessingStream(
       let fetchPercent = calcFetchPercent(
         contLength,
         JSON.stringify(object).length,
-      )
+      );
 
-      dataHandler(object, resourceCounter, statsObj)
+      dataHandler(object, resourceCounter, statsObj);
 
-      dataOutput(statsObj, fetchPercent, period)
+      dataOutput(statsObj, fetchPercent, period);
 
-      callback()
+      callback();
     },
 
     objectMode: true,
-  })
-}
-module.exports = createProcessingStream
+  });
+};
+
+module.exports = createProcessingStream;

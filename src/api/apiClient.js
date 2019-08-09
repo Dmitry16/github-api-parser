@@ -1,12 +1,12 @@
-const axios = require('axios')
+const axios = require('axios');
 //modules for stream parsing
-const { parser } = require('stream-json')
-const { streamArray } = require('stream-json/streamers/StreamArray')
-const { streamValues } = require('stream-json/streamers/StreamValues')
-const errorHandler = require('../errorHandlers')
-let resourceCounter = 0
-let chunksLength = 0
-let statsObj = {}
+const { parser } = require('stream-json');
+const { streamArray } = require('stream-json/streamers/StreamArray');
+const { streamValues } = require('stream-json/streamers/StreamValues');
+const errorHandler = require('../errorHandlers');
+let resourceCounter = 0;
+let chunksLength = 0;
+let statsObj = {};
 
 async function fetchData(
   period, 
@@ -15,10 +15,10 @@ async function fetchData(
   conParams
 ){
   //instantiating stream for filtering and writing data
-  const createProcessingStream = require('../streamModifier')
+  const createProcessingStream = require('../streamModifier');
 
   const input =
-    conStrParam !== '/rate_limit' ? conStrBase + conStrParam : conStrParam
+    conStrParam !== '/rate_limit' ? conStrBase + conStrParam : conStrParam;
 
   await axios
     .get(input, conParams)
@@ -31,13 +31,13 @@ async function fetchData(
         chunksLength,
         statsObj,
         period,
-      )
+      );
       response.data
         .pipe(parser())
         .pipe(resourceCounter !== 5 ? streamArray() : streamValues())
         .pipe(processingStream)
     })
-    .catch(errorHandler)
+    .catch(errorHandler);
 }
 
-module.exports = fetchData
+module.exports = fetchData;
