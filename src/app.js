@@ -1,5 +1,6 @@
 const moment = require('moment');
-const config = require('./config/config.js');
+// NODE_PATH=./src
+const config = require('config');
 const makeConStringWithDate = require('./utils/conStringMaker');
 const { getRepo, getPeriod } = require('./utils/argvParser');
 const fetchData = require('./api');
@@ -12,13 +13,12 @@ const period = getPeriod() === 0 ? 'All' : getPeriod();
 const date = moment()
   .subtract(period, 'days')
   .toISOString()
-const apiBase = 'https://api.github.com';
 const conStrBase = `/repos/${repo}`;
 const conStrParamsArr = makeConStringWithDate(period, date);
 
 const conParams = {
   responseType: 'stream',
-  baseURL: apiBase,
+  baseURL: config.apiBase,
   headers: {
     Authorization: `token ${config.GITHUB_PERSONAL_ACCESS_TOKEN}`,
   },
