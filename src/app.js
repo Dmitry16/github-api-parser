@@ -2,12 +2,19 @@ const moment = require('moment');
 // NODE_PATH=./src
 const config = require('config');
 const makeConStringWithDate = require('./utils/conStringMaker');
-const { getRepo, getPeriod } = require('./utils/argvParser');
 const fetchData = require('./api');
 
-//parsing repo and period parameters from the user command
-const repo = getRepo();
-const period = getPeriod() === 0 ? 'All' : getPeriod();
+/* 
+  getting repo and period parameters from the command line
+  the simple-argv-parser is the package written by me and
+  uploaded to the npm repository to be easyly reused
+*/
+const argvParsedObj = require('simple-argv-parser');
+
+const repo = argvParsedObj['--repo'];
+const period = !argvParsedObj['--period']
+  ? 'All'
+  : argvParsedObj['--period'];
 
 //making connection string
 const date = moment()
@@ -30,4 +37,8 @@ async function init() {
   };
 };
 
-if (repo) init();
+if (repo) {
+  init();
+} else {
+  console.log('Please provide --repo parameter');
+}
