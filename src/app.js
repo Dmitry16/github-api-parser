@@ -9,12 +9,12 @@ const fetchData = require('./api');
   the simple-argv-parser is the package written by me and
   uploaded to the npm repository to be easyly reused
 */
-const argvParsedObj = require('simple-argv-parser');
+const { parsedObj } = require('simple-argv-parser');
 
-const repo = argvParsedObj['--repo'];
-const period = !argvParsedObj['--period']
+const repo = parsedObj['--repo'];
+const period = !parsedObj['--period']
   ? 'All'
-  : argvParsedObj['--period'];
+  : parsedObj['--period'];
 
 //making connection string
 const date = moment()
